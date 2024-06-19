@@ -1,12 +1,8 @@
 import { toNano } from '@ton/core';
-import { getHttpEndpoint } from "@orbs-network/ton-access";
-import { mnemonicToWalletKey } from "ton-crypto";
 import { Counter } from '../wrappers/Counter';
 import { compile, NetworkProvider } from '@ton/blueprint';
-import { TonClient, Cell, WalletContractV4 } from "@ton/ton";
+
 export async function run(provider: NetworkProvider) {
-    const endpoint = await getHttpEndpoint({ network: "testnet" });
-    const client = new TonClient({ endpoint });
     const counter = provider.open(
         Counter.createFromConfig(
             {
